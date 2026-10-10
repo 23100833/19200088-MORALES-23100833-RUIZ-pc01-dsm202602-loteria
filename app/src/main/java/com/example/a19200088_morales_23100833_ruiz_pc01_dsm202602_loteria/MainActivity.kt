@@ -51,7 +51,7 @@ fun AutenticacionApp() {
 
     var pantalla by rememberSaveable {
         mutableStateOf(
-            if (auth.currentUser != null) "inicio" else "login"
+            if (auth.currentUser != null) "seguimiento" else "login"
         )
     }
 
@@ -59,21 +59,18 @@ fun AutenticacionApp() {
         "registro" -> PantallaRegistro(
             auth = auth,
             alVolverLogin = { pantalla = "login" },
-            alRegistrar = { pantalla = "inicio" }
+            alRegistrar = { pantalla = "seguimiento" }
         )
 
-        "inicio" -> PantallaInicio(
-            correo = auth.currentUser?.email.orEmpty(),
-            alCerrarSesion = {
-                auth.signOut()
-                pantalla = "login"
-            }
+        "seguimiento" -> SeguimientoSorteo(
+            sorteoId = "sorteo1",
+            jugadaUsuario = listOf(5, 12, 18, 24, 33, 42)
         )
 
         else -> PantallaLogin(
             auth = auth,
             alIrRegistro = { pantalla = "registro" },
-            alIniciarSesion = { pantalla = "inicio" }
+            alIniciarSesion = { pantalla = "seguimiento" }
         )
     }
 }
