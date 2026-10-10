@@ -1,5 +1,5 @@
 
-package com.example.loteriapc01
+package com.example.a19200088_morales_23100833_ruiz_pc01_dsm202602_loteria
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
